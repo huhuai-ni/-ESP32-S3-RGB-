@@ -38,3 +38,14 @@ umqtt/robust.py	/lib/umqtt/	带自动重连的 MQTT 库
 打开 web/index.html（需替换其中的 MQTT 凭证），点击按钮即可远程控制灯光颜色。
 
 查看 Thonny Shell 输出，确认收到指令。
+
+
+
+Burp Suite 抓包与指令篡改
+配置浏览器代理至 Burp Suite（127.0.0.1:8080）。
+
+使用网页控制端发送指令，在 Proxy → WebSockets history 中捕获 wss:// 流量。
+
+将 PUBLISH 消息发送到 Repeater，修改 Payload（如 blue → off）。
+
+重放消息，观察灯光变化。
